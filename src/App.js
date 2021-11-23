@@ -2,7 +2,22 @@ import React, { useState } from 'react';
 import data from './data';
 import SingleQuestion from './Question';
 function App() {
-  return <h2>accordion project setup</h2>;
+  const [questions, setQuestions] = useState(data);
+  return (
+    <main>
+      <div className="container">
+        <h3>questions and answers about login</h3>
+        <section className="info">
+          {
+            // creating an array (.map()) of the returned info from the question component's contents (an array of 5 objects that all include id, title, & info)
+            questions.map((question) => {
+              return <SingleQuestion key={question.id}{...question} />
+            })
+          }
+        </section>
+      </div>
+    </main>
+  );
 }
 
 export default App;
